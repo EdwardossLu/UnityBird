@@ -13,25 +13,25 @@ public class GameManager : MonoBehaviour
 
     [Header("ListOfCanvas")]
     [SerializeField] private int numOfCanvas = 1;
-    [SerializeField] private GameObject mainMenuCanvas = null;
-    [SerializeField] private GameObject gameplayCanvas = null;
-    [SerializeField] private GameObject OverCanvas = null;
+    [SerializeField] private GameObject[] listOfCanvas;
 
     private void Awake() 
     {
         Assert.IsNotNull(scoreText);
         Assert.IsNotNull(player);
-        Assert.IsNotNull(mainMenuCanvas);
-        Assert.IsNotNull(gameplayCanvas);
-        Assert.IsNotNull(OverCanvas);
+        Assert.IsNotNull(listOfCanvas);
 
         numOfCanvas = 1;
         ActiveCanavs(numOfCanvas);
+
+        if (numOfCanvas != 1)
+            Debug.LogError("numOfCanvas is not set to 0");
     }
 
     public void StartGame()
     {
         player.StartGame();
+
         numOfCanvas = 2;
         ActiveCanavs(numOfCanvas);
     }
@@ -47,35 +47,33 @@ public class GameManager : MonoBehaviour
         score = 0;
     }
 
-    private int ActiveCanavs( int i )
+    private void ActiveCanavs( int i )
     {
         switch (i)
         {
-            case 1:
-                mainMenuCanvas.SetActive(true);
-                gameplayCanvas.SetActive(false);
-                OverCanvas.SetActive(false);
+            case 1:     // Main Menu 
+                listOfCanvas[0].SetActive(true);
+                listOfCanvas[1].SetActive(false);
+                listOfCanvas[2].SetActive(false);
                 break;
 
-            case 2:
-                mainMenuCanvas.SetActive(false);
-                gameplayCanvas.SetActive(true);
-                OverCanvas.SetActive(false);
+            case 2:     // Gameplay
+                listOfCanvas[0].SetActive(false);
+                listOfCanvas[1].SetActive(true);
+                listOfCanvas[2].SetActive(false);
                 break;
 
-            case 3:
-                mainMenuCanvas.SetActive(false);
-                gameplayCanvas.SetActive(false);
-                OverCanvas.SetActive(true);
+            case 3:     // Game Over
+                listOfCanvas[0].SetActive(false);
+                listOfCanvas[1].SetActive(false);
+                listOfCanvas[2].SetActive(true);
                 break;
 
-            default:
-                mainMenuCanvas.SetActive(true);
-                gameplayCanvas.SetActive(false);
-                OverCanvas.SetActive(false);
+            default:    // Main Menu (Default)
+                listOfCanvas[0].SetActive(true);
+                listOfCanvas[1].SetActive(false);
+                listOfCanvas[2].SetActive(false);
                 break;
         }
-
-        return i;
     }
 }
