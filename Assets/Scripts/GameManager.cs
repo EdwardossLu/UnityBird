@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Assertions;
 using TMPro;
 
@@ -9,17 +10,29 @@ public class GameManager : MonoBehaviour
     [Header("General")]
     [SerializeField] private int score = 0;
     [SerializeField] private TextMeshProUGUI scoreText = null;
+    //[SerializeField] private static GameManager instance = null;
     [SerializeField] private PlayerController player = null;
+    [SerializeField] private PillarController pillar = null;
 
     [Header("ListOfCanvas")]
     [SerializeField] private int numOfCanvas = 1;
-    [SerializeField] private GameObject[] listOfCanvas;
+    [SerializeField] private GameObject[] listOfCanvas = null;
+
+    private bool gameStatus = false;
+
+
+    public bool GameStatus
+    {
+        get { return gameStatus; }
+    }
+
 
     private void Awake() 
     {
         Assert.IsNotNull(scoreText);
         Assert.IsNotNull(player);
         Assert.IsNotNull(listOfCanvas);
+        Assert.IsNotNull(pillar);
 
         numOfCanvas = 1;
         ActiveCanavs(numOfCanvas);
@@ -31,8 +44,23 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         player.StartGame();
+        //pillar.StartGame();
+        gameStatus = true;
 
         numOfCanvas = 2;
+        ActiveCanavs(numOfCanvas);
+    }
+
+    public void ResetGame()
+    {
+        SceneManager.LoadScene("SampleScene");
+    }
+
+    public void GameOver()
+    {
+        gameStatus = false;
+
+        numOfCanvas = 3;
         ActiveCanavs(numOfCanvas);
     }
 
