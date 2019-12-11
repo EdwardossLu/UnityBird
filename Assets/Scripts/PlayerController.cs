@@ -8,14 +8,16 @@ public class PlayerController : MonoBehaviour
     [Header("General")]
     [SerializeField] private float speed = 0;
     [SerializeField] private GameManager manager = null;
+    //[SerializeField] private PillarController pillar = null;
 
     private Rigidbody2D rb;
     private bool isJumping = false;
-    private bool gameHasStarted = false;
+    private bool gameStatus = false;
 
     private void Awake() 
     {
         Assert.IsNotNull(manager);
+        //Assert.IsNotNull(pillar);
     }
 
     private void Start()
@@ -24,17 +26,17 @@ public class PlayerController : MonoBehaviour
         Assert.IsNotNull(rb);
 
         rb.isKinematic = true;
-    }
+    } 
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && gameStatus)
             isJumping = true;
     }
 
     private void FixedUpdate() 
     {
-        if (isJumping && gameHasStarted)
+        if (isJumping && gameStatus)
         {
             isJumping = false;
             rb.velocity = Vector2.zero;
@@ -51,12 +53,15 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other) 
     {
         if (other.gameObject.CompareTag("Pillar"))
-            Debug.LogError("You have died!");
+        {
+            manager.GameOver();
+            gameStatus = false;
+        }
     }
 
     public void StartGame()
     {
-        gameHasStarted = true;
+        gameStatus = true;
         rb.isKinematic = false;
     }
 }
