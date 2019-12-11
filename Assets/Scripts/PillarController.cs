@@ -42,6 +42,7 @@ public class PillarController : MonoBehaviour
 
     private void Update() 
     {
+        // Move the platfrom based on the gameStatus.
         if (gameStatus)
             transform.Translate(Vector2.left * currentSpeed * Time.deltaTime);
 
@@ -51,8 +52,8 @@ public class PillarController : MonoBehaviour
             transform.position = new Vector2 (resetPoint, xAxis);
         }
 
+        // Always update the platform speed.
         SetPlatformSpeed();
-        print(currentSpeed);
     }
 
     private void SetPlatformSpeed()
@@ -70,18 +71,22 @@ public class PillarController : MonoBehaviour
         }
     }
 
+    // Game is over and movement is disabled.
     public void GameOver()
     {
         gameStatus = false;
     }
 
+    // Check the game status to move the platform.
     private IEnumerator CheckGameStatus(float waitTime)
     {
+        // If the GameStatus is false, don't move platform.
         while (!manager.GameStatus)
         {
             yield return new WaitForSeconds(waitTime);
         }
 
+        // If the GameStatus is true, move the platform.
         gameStatus = true;
         yield return null;
     }

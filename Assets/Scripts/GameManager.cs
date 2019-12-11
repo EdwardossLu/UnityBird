@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviour
         ActiveCanavs(numOfCanvas);
     }
 
+    // Reset the game.
     public void ResetGame()
     {
         SceneManager.LoadScene("SampleScene");
@@ -73,11 +74,7 @@ public class GameManager : MonoBehaviour
         scoreText.text = score.ToString();
     }
 
-    private void ResetScore()
-    {
-        score = 0;
-    }
-
+    // Change canvas based on int value.
     private void ActiveCanavs( int i )
     {
         switch (i)
