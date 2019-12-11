@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 55695486}
   - component: {fileID: 55695485}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Reset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -176,7 +176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Start
+  m_text: Play Again?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -245,10 +245,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 55695485}
-    characterCount: 5
+    characterCount: 11
     spriteCount: 0
-    spaceCount: 0
-    wordCount: 1
+    spaceCount: 1
+    wordCount: 2
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -324,7 +324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -423,7 +423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -525,7 +525,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 702283568}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -6.5, z: 0}
+  m_LocalPosition: {x: 0, y: -7.12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -626,7 +626,7 @@ GameObject:
   - component: {fileID: 830417532}
   - component: {fileID: 830417531}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -782,7 +782,7 @@ GameObject:
   - component: {fileID: 972470129}
   - component: {fileID: 972470128}
   m_Layer: 5
-  m_Name: Button
+  m_Name: StartButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -922,7 +922,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1379217325}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 622.5, y: 360, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 608721305}
@@ -944,7 +944,7 @@ GameObject:
   - component: {fileID: 1613366073}
   - component: {fileID: 1613366072}
   m_Layer: 5
-  m_Name: Button
+  m_Name: ResetButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1012,7 +1012,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1613366073}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2120173993}
+        m_MethodName: ResetGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1613366073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1163,7 +1174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -1221,6 +1232,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1273122942, guid: ffe5f308c0e69064fba5f120db1a3476, type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 2120173993}
     - target: {fileID: 3723912489540800467, guid: ffe5f308c0e69064fba5f120db1a3476,
         type: 3}
       propertyPath: m_Name
@@ -1315,10 +1330,10 @@ RectTransform:
   m_Father: {fileID: 659462242}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 112.8, y: 25.8}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -95.3}
+  m_SizeDelta: {x: 20.48, y: 39.190002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1979129978
 MonoBehaviour:
@@ -1383,7 +1398,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 0
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -1479,6 +1494,16 @@ PrefabInstance:
       propertyPath: manager
       value: 
       objectReference: {fileID: 2120173993}
+    - target: {fileID: 2354019594002921015, guid: c7a4d1e96846f2145b8745db544040e1,
+        type: 3}
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 1979129978}
+    - target: {fileID: 2354019594002921015, guid: c7a4d1e96846f2145b8745db544040e1,
+        type: 3}
+      propertyPath: textPlacement
+      value: 
+      objectReference: {fileID: 1979129976}
     - target: {fileID: 2354019594002921016, guid: c7a4d1e96846f2145b8745db544040e1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1539,6 +1564,78 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2354019594002921018, guid: c7a4d1e96846f2145b8745db544040e1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372577036860089758, guid: c7a4d1e96846f2145b8745db544040e1,
+        type: 3}
+      propertyPath: m_text
+      value: '0
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372577036860089758, guid: c7a4d1e96846f2145b8745db544040e1,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372577036860089758, guid: c7a4d1e96846f2145b8745db544040e1,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372577036860089758, guid: c7a4d1e96846f2145b8745db544040e1,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372577036860089758, guid: c7a4d1e96846f2145b8745db544040e1,
+        type: 3}
+      propertyPath: m_margin.x
+      value: -1.1636851
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372577036860089758, guid: c7a4d1e96846f2145b8745db544040e1,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372577036860089758, guid: c7a4d1e96846f2145b8745db544040e1,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372577036860089758, guid: c7a4d1e96846f2145b8745db544040e1,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372577036860089758, guid: c7a4d1e96846f2145b8745db544040e1,
+        type: 3}
+      propertyPath: m_margin.y
+      value: 4.018875
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372577036860089758, guid: c7a4d1e96846f2145b8745db544040e1,
+        type: 3}
+      propertyPath: m_margin.w
+      value: -0.28985542
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372577036860089758, guid: c7a4d1e96846f2145b8745db544040e1,
+        type: 3}
+      propertyPath: m_margin.z
+      value: 16.039677
+      objectReference: {fileID: 0}
+    - target: {fileID: 5261596378437446530, guid: c7a4d1e96846f2145b8745db544040e1,
+        type: 3}
+      propertyPath: m_Name
+      value: TextPlacement
+      objectReference: {fileID: 0}
+    - target: {fileID: 8879806659731713488, guid: c7a4d1e96846f2145b8745db544040e1,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7a4d1e96846f2145b8745db544040e1, type: 3}
 --- !u!1001 &5858412018863218829
@@ -1558,6 +1655,10 @@ PrefabInstance:
       propertyPath: m_UseFullKinematicContacts
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1273122942, guid: ffe5f308c0e69064fba5f120db1a3476, type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 2120173993}
     - target: {fileID: 2439302910367896481, guid: ffe5f308c0e69064fba5f120db1a3476,
         type: 3}
       propertyPath: m_TagString
@@ -1644,34 +1745,14 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6001811587440751362, guid: 810abca372913134eb6e783d48cb0477,
         type: 3}
-      propertyPath: listOfCanvas.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6001811587440751362, guid: 810abca372913134eb6e783d48cb0477,
-        type: 3}
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 1979129978}
     - target: {fileID: 6001811587440751362, guid: 810abca372913134eb6e783d48cb0477,
         type: 3}
-      propertyPath: gameplayCanvas
-      value: 
-      objectReference: {fileID: 659462238}
-    - target: {fileID: 6001811587440751362, guid: 810abca372913134eb6e783d48cb0477,
-        type: 3}
-      propertyPath: mainMenuCanvas
-      value: 
-      objectReference: {fileID: 608721301}
-    - target: {fileID: 6001811587440751362, guid: 810abca372913134eb6e783d48cb0477,
-        type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 2119185955}
-    - target: {fileID: 6001811587440751362, guid: 810abca372913134eb6e783d48cb0477,
-        type: 3}
-      propertyPath: OverCanvas
-      value: 
-      objectReference: {fileID: 1939154841}
     - target: {fileID: 6001811587440751362, guid: 810abca372913134eb6e783d48cb0477,
         type: 3}
       propertyPath: listOfCanvas.Array.data[0]
@@ -1687,6 +1768,11 @@ PrefabInstance:
       propertyPath: listOfCanvas.Array.data[2]
       value: 
       objectReference: {fileID: 1939154841}
+    - target: {fileID: 6001811587440751362, guid: 810abca372913134eb6e783d48cb0477,
+        type: 3}
+      propertyPath: instance
+      value: 
+      objectReference: {fileID: 2120173993}
     - target: {fileID: 6001811587440751363, guid: 810abca372913134eb6e783d48cb0477,
         type: 3}
       propertyPath: m_LocalPosition.x
