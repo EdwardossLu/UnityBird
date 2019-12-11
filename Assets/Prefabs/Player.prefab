@@ -145,3 +145,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   manager: {fileID: 0}
+  scoreText: {fileID: 0}

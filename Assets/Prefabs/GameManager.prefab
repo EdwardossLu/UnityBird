@@ -45,3 +45,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   scoreText: {fileID: 0}
+  player: {fileID: 0}
+  pillar: {fileID: 1273122942, guid: ffe5f308c0e69064fba5f120db1a3476, type: 3}
+  numOfCanvas: 1
+  listOfCanvas:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
