@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
     [Header("General")]
     [SerializeField] private int score = 0;
     [SerializeField] private TextMeshProUGUI scoreText = null;
-    //[SerializeField] private static GameManager instance = null;
     [SerializeField] private PlayerController player = null;
     [SerializeField] private PillarController pillar = null;
 
@@ -49,7 +48,6 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         player.StartGame();
-        //pillar.StartGame();
         gameStatus = true;
 
         numOfCanvas = 2;

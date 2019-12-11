@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 public class PillarController : MonoBehaviour
 {
@@ -24,6 +25,12 @@ public class PillarController : MonoBehaviour
 
     private bool gameStatus = false;
     private int newScore = 5;
+
+
+    private void Awake() 
+    {
+        Assert.IsNotNull(manager);
+    }
 
     private void Start() 
     {

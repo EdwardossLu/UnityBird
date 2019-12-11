@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour
     [Header("General")]
     [SerializeField] private float speed = 0;
     [SerializeField] private GameManager manager = null;
-    //[SerializeField] private PillarController pillar = null;
 
     private Rigidbody2D rb;
     private bool isJumping = false;
@@ -17,7 +16,6 @@ public class PlayerController : MonoBehaviour
     private void Awake() 
     {
         Assert.IsNotNull(manager);
-        //Assert.IsNotNull(pillar);
     }
 
     private void Start()
