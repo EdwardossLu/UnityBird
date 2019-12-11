@@ -5,10 +5,15 @@ using UnityEngine;
 public class PillarController : MonoBehaviour
 {
     [Header("General")]
-    [SerializeField] private float speed = 0f;
     [SerializeField] private float startPlatformTimer = 2f;
     [SerializeField] private GameManager manager = null;
-    
+
+    [Header("peed")]
+    [SerializeField] private float currentSpeed = 0f;
+    [SerializeField] private float nextSpeed = .50f;
+    [SerializeField] private int nextScore = 5;
+    [SerializeField] private int capScore = 50;
+
     [Header("XAsis")]
     [SerializeField] private float pointToReset = -10f;
     [SerializeField] private float resetPoint = 10f;
@@ -18,6 +23,7 @@ public class PillarController : MonoBehaviour
     [SerializeField] private float bottomHeight = -3f;
 
     private bool gameStatus = false;
+    private int newScore = 5;
 
     private void Start() 
     {
@@ -30,12 +36,30 @@ public class PillarController : MonoBehaviour
     private void Update() 
     {
         if (gameStatus)
-            transform.Translate(Vector2.left * speed * Time.deltaTime);
+            transform.Translate(Vector2.left * currentSpeed * Time.deltaTime);
 
         if (transform.position.x <= pointToReset)
         {
             float xAxis = Random.Range(bottomHeight, topHeight);
             transform.position = new Vector2 (resetPoint, xAxis);
+        }
+
+        SetPlatformSpeed();
+        print(currentSpeed);
+    }
+
+    private void SetPlatformSpeed()
+    {
+        int currentScore = manager.Score;
+
+        if (newScore == capScore)
+        {
+            newScore = capScore;
+        }
+        else if (currentScore == newScore)
+        {
+            currentSpeed += nextSpeed;
+            newScore += nextScore;
         }
     }
 

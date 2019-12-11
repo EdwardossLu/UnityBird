@@ -21,9 +21,14 @@ public class GameManager : MonoBehaviour
     private bool gameStatus = false;
 
 
-    public bool GameStatus
+    public bool GameStatus  
     {
         get { return gameStatus; }
+    }
+
+    public int Score
+    {
+        get { return score; }
     }
 
 

@@ -202,7 +202,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fb00610fbb79c749b497f7c51e83877, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  startPlatformTimer: 2
+  manager: {fileID: 0}
+  currentSpeed: 5
+  nextSpeed: 0.5
+  nextScore: 5
+  capScore: 50
   pointToReset: -10
   resetPoint: 10
   topHeight: 3
