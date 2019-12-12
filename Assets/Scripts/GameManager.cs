@@ -12,7 +12,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreText = null;
     [SerializeField] private TextMeshProUGUI endScore = null;
     [SerializeField] private PlayerController player = null;
-    [SerializeField] private PillarController pillar = null;
 
     [Header("ListOfCanvas")]
     [SerializeField] private int numOfCanvas = 1;
@@ -37,13 +36,18 @@ public class GameManager : MonoBehaviour
         Assert.IsNotNull(scoreText);
         Assert.IsNotNull(player);
         Assert.IsNotNull(listOfCanvas);
-        Assert.IsNotNull(pillar);
 
         numOfCanvas = 1;
         ActiveCanavs(numOfCanvas);
 
         if (numOfCanvas != 1)
             Debug.LogError("numOfCanvas is not set to 0");
+    }
+
+    private void Update() 
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
     }
 
     public void StartGame()
