@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && gameStatus)
+        if (Input.GetKeyDown(KeyCode.Space) && gameStatus || Input.GetMouseButtonDown(0) && gameStatus)
             isJumping = true;
     }
 
