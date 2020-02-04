@@ -40,12 +40,14 @@ public class GameManager : MonoBehaviour
         numOfCanvas = 1;
         ActiveCanavs(numOfCanvas);
 
+        // Display an error when the wrong canvas is displayed towards the player.
         if (numOfCanvas != 1)
             Debug.LogError("numOfCanvas is not set to 0");
     }
 
     private void Update() 
     {
+        // Close the application when the escape button is pressed.
         if (Input.GetKeyDown(KeyCode.Escape))
             Application.Quit();
     }

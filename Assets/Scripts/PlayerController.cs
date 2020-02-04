@@ -28,12 +28,14 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        // Check to see if the player can jump. If you can, lift the player character up.
         if (Input.GetKeyDown(KeyCode.Space) && gameStatus || Input.GetMouseButtonDown(0) && gameStatus)
             isJumping = true;
     }
 
     private void FixedUpdate() 
     {
+        // Simulate a single jump.
         if (isJumping && gameStatus)
         {
             isJumping = false;
@@ -44,12 +46,14 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) 
     {
+        // When the player enters a trigger, add 1 score.
         if (other.gameObject.CompareTag("Pillar"))
             manager.AddScore();
     }
 
     private void OnCollisionEnter2D(Collision2D other) 
     {
+        // When the player hits a pillar, the game ends.
         if (other.gameObject.CompareTag("Pillar"))
         {
             manager.GameOver();

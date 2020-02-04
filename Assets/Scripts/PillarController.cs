@@ -56,6 +56,7 @@ public class PillarController : MonoBehaviour
         SetPlatformSpeed();
     }
 
+    // Change the platform speed based on the score of the player.
     private void SetPlatformSpeed()
     {
         int currentScore = manager.Score;
