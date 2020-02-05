@@ -23,8 +23,8 @@ public class PillarController : MonoBehaviour
     [SerializeField] private float topHeight = 3f;
     [SerializeField] private float bottomHeight = -3f;
 
-    private bool gameStatus = false;
-    private int newScore = 5;
+    private bool _gameStatus = false;
+    private int _newScore = 5;
 
 
     private void Awake() 
@@ -43,7 +43,7 @@ public class PillarController : MonoBehaviour
     private void Update() 
     {
         // Move the platfrom based on the gameStatus.
-        if (gameStatus)
+        if (_gameStatus)
             transform.Translate(Vector2.left * currentSpeed * Time.deltaTime);
 
         if (transform.position.x <= pointToReset)
@@ -61,21 +61,21 @@ public class PillarController : MonoBehaviour
     {
         int currentScore = manager.Score;
 
-        if (newScore == capScore)
+        if (_newScore == capScore)
         {
-            newScore = capScore;
+            _newScore = capScore;
         }
-        else if (currentScore == newScore)
+        else if (currentScore == _newScore)
         {
             currentSpeed += nextSpeed;
-            newScore += nextScore;
+            _newScore += nextScore;
         }
     }
 
     // Game is over and movement is disabled.
     public void GameOver()
     {
-        gameStatus = false;
+        _gameStatus = false;
     }
 
     // Check the game status to move the platform.
@@ -88,7 +88,7 @@ public class PillarController : MonoBehaviour
         }
 
         // If the GameStatus is true, move the platform.
-        gameStatus = true;
+        _gameStatus = true;
         yield return null;
     }
 }

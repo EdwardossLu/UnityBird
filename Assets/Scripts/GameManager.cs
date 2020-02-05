@@ -17,12 +17,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int numOfCanvas = 1;
     [SerializeField] private GameObject[] listOfCanvas = null;
 
-    private bool gameStatus = false;
-
+    private bool _gameStatus = false;
 
     public bool GameStatus
     {
-        get { return gameStatus; }
+        get { return _gameStatus; }
     }
 
     public int Score
@@ -57,10 +56,10 @@ public class GameManager : MonoBehaviour
     // Start the game when the player does an input.
     private void StartGame()
     {
-        if (Input.GetMouseButtonUp(0) && gameStatus == false)
+        if (Input.GetMouseButtonUp(0) && _gameStatus == false)
         {
             player.StartGame();
-            gameStatus = true;
+            _gameStatus = true;
 
             numOfCanvas = 2;
             ActiveCanavs(numOfCanvas);
@@ -75,7 +74,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        gameStatus = false;
+        _gameStatus = false;
         endScore.text = score.ToString();
 
         numOfCanvas = 3;

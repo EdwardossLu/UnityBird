@@ -9,9 +9,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed = 0;
     [SerializeField] private GameManager manager = null;
 
-    private Rigidbody2D rb;
-    private bool isJumping = false;
-    private bool gameStatus = false;
+    private Rigidbody2D _rb;
+    private bool _isJumping = false;
+    private bool _gameStatus = false;
 
     private void Awake() 
     {
@@ -20,27 +20,27 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        Assert.IsNotNull(rb);
+        _rb = GetComponent<Rigidbody2D>();
+        Assert.IsNotNull(_rb);
 
-        rb.isKinematic = true;
+        _rb.isKinematic = true;
     } 
 
     private void Update()
     {
         // Check to see if the player can jump. If you can, lift the player character up.
-        if (Input.GetKeyDown(KeyCode.Space) && gameStatus || Input.GetMouseButtonDown(0) && gameStatus)
-            isJumping = true;
+        if (Input.GetKeyDown(KeyCode.Space) && _gameStatus || Input.GetMouseButtonDown(0) && _gameStatus)
+            _isJumping = true;
     }
 
     private void FixedUpdate() 
     {
         // Simulate a single jump.
-        if (isJumping && gameStatus)
+        if (_isJumping && _gameStatus)
         {
-            isJumping = false;
-            rb.velocity = Vector2.zero;
-            rb.AddForce((Vector2.up * speed), ForceMode2D.Impulse);
+            _isJumping = false;
+            _rb.velocity = Vector2.zero;
+            _rb.AddForce((Vector2.up * speed), ForceMode2D.Impulse);
         }
     }
 
@@ -57,13 +57,13 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Pillar"))
         {
             manager.GameOver();
-            gameStatus = false;
+            _gameStatus = false;
         }
     }
 
     public void StartGame()
     {
-        gameStatus = true;
-        rb.isKinematic = false;
+        _gameStatus = true;
+        _rb.isKinematic = false;
     }
 }
