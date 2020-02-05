@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     private bool gameStatus = false;
 
 
-    public bool GameStatus  
+    public bool GameStatus
     {
         get { return gameStatus; }
     }
@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-    private void Awake() 
+    private void Awake()
     {
         Assert.IsNotNull(scoreText);
         Assert.IsNotNull(player);
@@ -45,20 +45,26 @@ public class GameManager : MonoBehaviour
             Debug.LogError("numOfCanvas is not set to 0");
     }
 
-    private void Update() 
+    private void Update()
     {
         // Close the application when the escape button is pressed.
         if (Input.GetKeyDown(KeyCode.Escape))
             Application.Quit();
+
+        StartGame();
     }
 
-    public void StartGame()
+    // Start the game when the player does an input.
+    private void StartGame()
     {
-        player.StartGame();
-        gameStatus = true;
+        if (Input.GetMouseButtonUp(0) && gameStatus == false)
+        {
+            player.StartGame();
+            gameStatus = true;
 
-        numOfCanvas = 2;
-        ActiveCanavs(numOfCanvas);
+            numOfCanvas = 2;
+            ActiveCanavs(numOfCanvas);
+        }
     }
 
     // Reset the game.
@@ -83,7 +89,7 @@ public class GameManager : MonoBehaviour
     }
 
     // Change canvas based on int value.
-    private void ActiveCanavs( int i )
+    private void ActiveCanavs(int i)
     {
         switch (i)
         {
